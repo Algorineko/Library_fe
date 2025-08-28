@@ -1,47 +1,31 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="app">
+    <header class="nav">
+      <h1>图书管理系统</h1>
+      <nav>
+        <RouterLink to="/">首页</RouterLink>
+        <RouterLink to="/books">图书列表</RouterLink>
+        <RouterLink to="/books/new">新书上架</RouterLink>
+        <RouterLink to="/readers/new">读者登记</RouterLink>
+        <RouterLink to="/readers/find">读者查询</RouterLink>
+      </nav>
+    </header>
+    <main class="container">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
+<script setup>
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; background:#1f2937; color:#fff;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.nav a {
+  color:#fff; margin-left: 12px; text-decoration: none;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+.container { padding: 16px; }
 </style>
