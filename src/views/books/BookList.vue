@@ -18,16 +18,16 @@
         <thead>
           <tr>
             <th>ID</th><th>ISBN</th><th>书名</th><th>作者</th>
-            <th>馆藏/可借</th><th>出版</th><th>状态</th><th>操作</th>
+            <th>可借/馆藏</th><th>出版</th><th>状态</th><th>操作</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="b in list" :key="b.id">
+          <tr v-for="b in [...list].reverse()" :key="b.id">
             <td>{{ b.id }}</td>
             <td>{{ b.isbn }}</td>
             <td><RouterLink :to="`/books/${b.id}`">{{ b.title }}</RouterLink></td>
             <td>{{ b.author }}</td>
-            <td>{{ b.copies_total }} / {{ b.copies_available }}</td>
+            <td>{{ b.copies_available }} / {{ b.copies_total }}</td>
             <td>{{ fmt(b.published_at) }}</td>
             <td>
               <span class="badge" :class="b.status==='active' ? 'green' : 'gray'">{{ b.status }}</span>

@@ -20,6 +20,7 @@ npm install
 
 ```sh
 npm run dev
+http://localhost:5173
 ```
 
 ### Compile and Minify for Production
